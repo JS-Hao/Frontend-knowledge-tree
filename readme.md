@@ -19,7 +19,7 @@
 >
 >   这篇文章[history对象--JavaScript标准参考教程](http://javascript.ruanyifeng.com/bom/history.html#)可以使我们很好地再次回顾```history```对象。我们可以通过```history.pushState```与```history.replaceState```去控制标签页的地址改变而不引起页面刷新，再配合```popstate```事件与```event.state```的合理使用，即可实现前端路由
 >
->   ```javascript
+>   ```html
 >   <!DOCTYPE html>
 >   <html>
 >   <head>
@@ -61,6 +61,58 @@
 > * __hash__ 
 >
 >   当我们通过```window.location```去处理hash的变化时并不会引发页面的重新渲染，而是当作新页面加到历史记录中。每当hash变化时会触发```hashchange```事件，只要我们在```hashchange```事件的回调函数里进行相关处理（如通过ajax请求，改变页面内容），即可实现前端路由控制
+>
+>   ```html
+>   <!DOCTYPE html>
+>   <html>
+>   <head>
+>   	<title>hash router</title>
+>   </head>
+>   <body>
+>   <ul>
+>   	<li><a href="#/">turn white</a></li>
+>   	<li><a href="#/orange">turn orange</a></li>
+>   	<li><a href="#/purple">turn purple</a></li>
+>   </ul>
+>   <script type="text/javascript">
+>   	function Router() {
+>   		this.routes = {};
+>   		this.currentUrl = '';
+>   	}
+>   	Router.prototype.route = function(path, callback) {
+>   		this.routes[path] = callback || function(){};
+>   	}
+>   	Router.prototype.refresh = function() {
+>   		this.currentUrl = location.hash.slice(1) || '/';
+>   		this.routes[this.currentUrl]();
+>   	}
+>   	Router.prototype.init = function() {
+>   		window.addEventListener('load', this.refresh.bind(this), false);
+>   		window.addEventListener('hashchange', this.refresh.bind(this), false);
+>   	}
+>   	window.Router = new Router();
+>   	window.Router.init();
+>   	var content = document.querySelector('body');
+>   	function changeBgColor(color) {
+>   		content.style.backgroundColor = color;
+>   	}
+>   	Router.route('/', function() {
+>   		changeBgColor('white');
+>   	});
+>   	Router.route('/orange', function() {
+>   		changeBgColor('orange');
+>   	});
+>   	Router.route('/purple', function() {
+>   		changeBgColor('purple');
+>   	});
+>   </script>
+>   </body>
+>   </html>
+>   ```
+>
+>   ​
+>
+>   ​
 >
 > 关于更多更详细的细节，可以查看这篇文章——[前端路由的两种实现原理](https://segmentfault.com/a/1190000007238999) 
 #### 前端模块化
