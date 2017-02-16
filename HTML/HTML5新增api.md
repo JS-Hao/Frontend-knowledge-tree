@@ -12,9 +12,11 @@
 * __localStorage__
 
 >	[MDN: Window.localStorage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/localStorage)
+
 * __sessionStorage__
 
 >	[MDN: Window.sessionStorage](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/sessionStorage) 
+
 * __区别__
 
 >	两者都允许你将数据储存在本地并进行读写操作，但存储在localStorage里面的数据没有过期时间，而储存在sessionStorage里面的数据则会在浏览器会话结束时被清除，即浏览器关闭时。
