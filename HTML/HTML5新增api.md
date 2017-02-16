@@ -1,4 +1,4 @@
-# HTML5新增
+# HTML5新增api
 ### WebSocket
 > * __概述__
 
