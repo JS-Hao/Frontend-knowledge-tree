@@ -1,6 +1,6 @@
 # git工作流
 
-> 前言： git作为日常开发的协作工具，对齐进行深入了解是必不可少的。
+> 前言： git作为日常开发的协作工具，对此进行深入了解是必不可少的。
 
 - git branch 查看分支/ git branch branch_name
 - git stash 将文件放人暂存区
@@ -13,13 +13,13 @@
 - git pull 全部更新
 - git reset –hard h13ds26 回到本地仓库之前某一个状态，后面的hash值是HEAD
 - git checkout -b branch-xx origin/remote-branch-xx 拉取远程分支到本地
-- git clone https://github.com/Gotjoy/Gotjoy.github.io.git 从远程主机克隆一个版本库
+- git clone https://github.com/gotjoy/gotjoy.github.io.git 从远程主机克隆一个版本库
 
 当然我最常用的命令（万能提交代码）：
 
 ```javascript
 git add .
-git commit -m "Your commit message"
+git commit -m "your commit message"
 git push origin master
 ```
 

@@ -1,0 +1,25 @@
+{
+  "name": "study",
+  "version": "1.0.0",
+  "description": "There is no limit to knowledge.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gotjoy/Study.git"
+  },
+  "keywords": [
+    "Front-end"
+  ],
+  "author": "1kg,zhihao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gotjoy/Study/issues"
+  },
+  "homepage": "https://github.com/Gotjoy/Study#readme",
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
