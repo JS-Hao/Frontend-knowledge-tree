@@ -20,6 +20,9 @@
   },
   "homepage": "https://github.com/Gotjoy/Study#readme",
   "dependencies": {
+  },
+  "devDependencies": {
+    "immutable": "^3.8.1",
     "lodash": "^4.17.4"
   }
 }
