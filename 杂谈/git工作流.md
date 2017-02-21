@@ -25,7 +25,7 @@ git push origin master
 
 ---
 
-#### 参考学习资料
+### 参考学习资料
 
 - [Git工作流指南：Pull Request工作流](http://blog.jobbole.com/76854/)
 - [Git Documentation](https://git-scm.com/doc)
