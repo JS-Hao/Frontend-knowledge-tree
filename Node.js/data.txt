@@ -1,0 +1,7 @@
+
+通俗漫画介绍 ArrayBuffers 和 SharedArrayBuffers
+a-cartoon-intro-to-arraybuffers-and-sharedarraybuffers
+Node.js中文文档 - Buffer API
+百度百科 - ASCII & 百度百科 - Unicode & 百度百科 - UTF-8
+维基百科 - UTF-8
+阮一峰老师文章的常识性错误之 Unicode 与 UTF-8
