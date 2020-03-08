@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>React Hooks</title>
+  </head>
+  <script>
+    const MyReact = (function() {
+      let hooks = [],
+        currentHook = 0; // Hooks数组和一个迭代下标！
+      let _val, _deps;
+
+      return {
+        render(Component) {
+          const Comp = Component();
+          Comp.render();
+          currentHook = 0;
+          return Comp;
+        },
+
+        useEffect(callback, depArray) {
+          // 没有传入的外部依赖变量，则应该更新时渲染
+          const hasNoDeps = !depArray;
+          const deps = hooks[currentHook];
+          // 若有传入的外部依赖变量，则需观察是否有发生更变，发生变更才渲染
+          const hasChangeDeps = deps
+            ? !depArray.every((el, i) => el === deps[i])
+            : true;
+          if (hasNoDeps || hasChangeDeps) {
+            callback();
+            hooks[currentHook] = depArray;
+          }
+          currentHook++; // 本hook运行结束
+        },
+
+        useState(initialVal) {
+          hooks[currentHook] = hooks[currentHook] || initialVal;
+          const setStateHookIndex = currentHook; // 防止变更
+          const setState = newState => (hooks[setStateHookIndex] = newState);
+          return [hooks[currentHook++], setState];
+        }
+      };
+    })();
+
+    function Counter() {
+      const [count, setCount] = MyReact.useState(0);
+      const [text, setText] = MyReact.useState("foo");
+
+      MyReact.useEffect(() => {
+        console.log("effect", count, text);
+      }, [count, text]);
+
+      return {
+        click: () => setCount(count + 1),
+        render: () => console.log("render: ", { count }),
+        noop: () => setCount(count),
+        type: txt => setText(txt)
+      };
+    }
+
+    let App;
+    App = MyReact.render(Counter);
+    App.click();
+    App = MyReact.render(Counter);
+    App.type("bar");
+    App = MyReact.render(Counter);
+    App.noop();
+    App = MyReact.render(Counter);
+    App.click();
+    App = MyReact.render(Counter);
+  </script>
+</html>
